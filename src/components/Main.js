@@ -1,7 +1,5 @@
-import React from 'react';
-import HeroBanner from './HeroBanner'
-
- function Main () {
+import React, { Component } from 'react';
+import {  GoogleApiWrapper } from 'google-maps-react';
 
 
 
@@ -9,14 +7,27 @@ import HeroBanner from './HeroBanner'
 
 
 
-    return <div className="content has-text-centered">
+
+class Main extends Component {
 
 
 
+render()  {
 
 
-  </div>
 
+  return (
+
+     <div >
+
+     </div>
+    );
+
+  }
 }
 
-export default Main;
+
+
+export default GoogleApiWrapper({
+  apiKey: process.env.REACT_APP_API_KEY,
+})(Main)
