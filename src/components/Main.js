@@ -1,12 +1,29 @@
 import React from 'react';
+import beer_mug from "../images/beer_mug.png"
 
 
  function Main () {
 
 
+const HeroTitle = <h1></h1>
+  const HeroBanner = <div className="hero-body has-background-primary">
+  <img src={beer_mug} style={{height:"150px"}} alt="jug beer foamy" />
+  <p class="title has-text-white">
+    Where's My Beer?
+    </p>
+    <p class="subtitle has-text-white">
+     A US-based beer searching app powered by Open BreweryDB and Google Maps API
+    </p>
+  </div>
+
+
     return <div className="content has-text-centered">
 
-
+<div className="columns">
+<div className="column">
+{HeroBanner}
+</div>
+</div>
 
 
 
