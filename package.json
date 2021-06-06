@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "a US-based beer searching app powered by Open BreweryDB and Google Maps API",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "google-maps-react": "^2.0.6",
     "luxon": "^1.27.0",
     "node-sass": "^6.0.0",
