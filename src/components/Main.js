@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Map, InfoWindow, GoogleApiWrapper, Marker  } from 'google-maps-react';
 import { DateTime } from 'luxon';
+import NumberFormat from 'react-number-format';
 
 require('dotenv').config()
 
@@ -40,6 +41,7 @@ class Main extends Component {
 handleSearch = () => {
     this.breweryAPICall(this.state.brewerySearch);
 
+
   };
 
   breweryAPICall = brewerySearch => {
@@ -55,12 +57,13 @@ handleSearch = () => {
             breweries: jsonData
 
          });
+         console.log(jsonData)
+
 
       });
-
   };
 
-  infoWindowHendler = (props, marker, e) =>
+  infoWindowHandler = (props, marker, e) =>
   this.setState({
   selectedPlace: props,
   activeMarker: marker,
@@ -75,9 +78,14 @@ onCloseWindow = props => {
 });
 };
 
+inputChangedHandler = (values) => {
+  this.setState({
+    userInput: values,
+  });
+}
+
 
 render()  {
-
 
 
 
@@ -137,9 +145,13 @@ bounds={this.state.bounds}
               phone={brewery.phone}
               updated_at={brewery.updated_at}
               position={{ lat: brewery.latitude, lng: brewery.longitude}}
-              onClick={this.infoWindowHendler}
+              onClick={this.infoWindowHandler}
+              postal_code={brewery.postal_code}
+
               />
+
             )
+
           }
 
 
@@ -150,35 +162,44 @@ bounds={this.state.bounds}
              onClose={this.onCloseWindow}
          >
          <div className="box  container ">
-<p className="title ">{this.state.selectedPlace.name}
-<br />
-
-<button className="button is-focus is-outline  is-success">{this.state.selectedPlace.brewery_type}</button>
-
+<p className="title pb-2">{this.state.selectedPlace.name}
 </p>
 
-<p className="subtitle p-2 ">{this.state.selectedPlace.street}, {this.state.selectedPlace.city}, {this.state.selectedPlace.state},  {this.state.selectedPlace.country}
+<button className="button subtitle is-5 is-focus is-outline  is-success">
+{this.state.selectedPlace.brewery_type}
+  </button>
+
+
+
+
+<p className="subtitle  p-1">
+<i className="fas fa-map-marker-alt pr-2"></i>
+ {this.state.selectedPlace.street}, {this.state.selectedPlace.city}, {this.state.selectedPlace.state}, {this.state.selectedPlace.postal_code}, {this.state.selectedPlace.country}
+ </p>
+
+<p className="subtitle ">
+<i className="fas fa-phone"></i>
+ <NumberFormat value={this.state.selectedPlace.phone
+} format=" (###) ###-####" displayType="text"/>
+ </p>
+
+
+ <p className="subtitle ">
+ <i className="fas fa-globe-americas pr-2"></i>
+  <a href= {this.state.selectedPlace.website_url} className=" is-primary is-hovered">
+ {this.state.selectedPlace.website_url}
+</a>
+ </p>
 
 <br />
 
-<a href="tel:{this.state.selectedPlace.phone}" className=" is-hovered ">
-{this.state.selectedPlace.phone}
-</a>
 
-
-
-<br />
-<a href= {this.state.selectedPlace.website_url} className=" is-primary is-hovered">
-{this.state.selectedPlace.website_url}
-</a>
-</p>
 <p>
- <a href="tel:{this.state.selectedPlace.phone}" className=" is-hovered">
-{this.state.selectedPlace.phone}
-</a>
+
+
 </p>
 <p className="has-text-right h as-text-grey-lighter is-italic">
-Last updated:  {DateTime.fromISO(this.state.selectedPlace.updated_at).toFormat('LLL dd yyyy')}
+Last updated:  {DateTime.fromISO(this.state.selectedPlace.updated_at).toFormat('LLLL dd yyyy')}
 </p>
 
  </div>
