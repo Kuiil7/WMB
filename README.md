@@ -20,3 +20,5 @@ https://wonderful-mccarthy-55ff72.netlify.app/
 
 React, Open Brewery DB, Bulma, Luxon, and Google Maps React.
 
+Note: lat and long contains null values 
+
