@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 import beer_mug from "./beer_mug.png"
-import { NumericFormat, PatternFormat } from 'react-number-format';
+import {PatternFormat } from 'react-number-format';
 
 const BrewerySearch = (props) => {
   const [query, setQuery] = useState('');
@@ -104,7 +104,7 @@ const BrewerySearch = (props) => {
       {isLoading && <div>Loading...</div>}
       {isError && <div>Error occurred</div>}
       {!isLoading && !isError && (
-        <div className='map-container container'>
+        <div className='map-container container has-text-left' >
           <Map
             google={props.google}
             zoom={2}
@@ -129,9 +129,9 @@ const BrewerySearch = (props) => {
               >
                 <div>
                   <h2>{selectedBrewery.name}</h2>
-                  <p>{selectedBrewery.street}, {selectedBrewery.city}, {selectedBrewery.state}</p>
+                  <p>{selectedBrewery.street}</p>
+                  <p>{selectedBrewery.city}, {selectedBrewery.state}, {selectedBrewery.postal_code}</p>
                   <p>{selectedBrewery.country}</p>
-                  <p>{selectedBrewery.postal_code}</p>
                   <p><a href={selectedBrewery.website_url}>{selectedBrewery.website_url}</a>
                   </p>
                   <PatternFormat
