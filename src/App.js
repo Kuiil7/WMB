@@ -153,7 +153,7 @@ const BrewerySearch = (props) => {
                   </div>
                 </InfoWindow>
               )}
-              <footer className="mt-4 is-flex is-justify-content-flex-end">
+              <footer className="mt-4 has-text-right">
                 <strong>Where's My Beer</strong> created by <a href="https://github.com/Kuiil7">🤙🏾Kuiil7</a>.
                 <br />
                 Powered by: <a href="https://www.openbrewerydb.org/" className="pr-1">Open Brewery DB.</a>
