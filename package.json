@@ -1,6 +1,7 @@
 {
   "name": "wmb3",
   "version": "0.1.0",
+  "homepage": "https://kuiil7.github.io/wmb",
   "private": true,
   "dependencies": {
     "@googlemaps/js-api-loader": "^1.16.8",
