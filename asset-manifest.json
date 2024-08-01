@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/wmb/static/css/main.d06a3d70.css",
-    "main.js": "/wmb/static/js/main.6e22785c.js",
+    "main.js": "/wmb/static/js/main.c125502f.js",
     "static/media/beer_mug.png": "/wmb/static/media/beer_mug.4f983d6a2598da62cfed.png",
     "index.html": "/wmb/index.html",
-    "main.6e22785c.js.map": "/wmb/static/js/main.6e22785c.js.map"
+    "main.c125502f.js.map": "/wmb/static/js/main.c125502f.js.map"
   },
   "entrypoints": [
     "static/css/main.d06a3d70.css",
-    "static/js/main.6e22785c.js"
+    "static/js/main.c125502f.js"
   ]
 }
