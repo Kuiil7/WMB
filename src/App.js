@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react';
 import beer_mug from "./beer_mug.png"
+import { NumericFormat, PatternFormat } from 'react-number-format';
 
 const BrewerySearch = (props) => {
   const [query, setQuery] = useState('');
@@ -67,6 +68,7 @@ const BrewerySearch = (props) => {
     }
   }, [data, mapInstance, props.google]);
 
+  
   return (
 <>
       <section className="hero is-small is-primary content has-text-centered mb-0">
@@ -129,9 +131,19 @@ const BrewerySearch = (props) => {
                   <h2>{selectedBrewery.name}</h2>
                   <p>{selectedBrewery.street}, {selectedBrewery.city}, {selectedBrewery.state}</p>
                   <p>{selectedBrewery.country}</p>
-                  <p><a href={selectedBrewery.website_url}>{selectedBrewery.website_url}</a></p>
-                  <p>{selectedBrewery.phone}</p>
-                  <p>{selectedBrewery.updated_at}</p>
+                  <p>{selectedBrewery.postal_code}</p>
+                  <p><a href={selectedBrewery.website_url}>{selectedBrewery.website_url}</a>
+                  </p>
+                  <PatternFormat
+                  value={selectedBrewery.phone}
+                  format="+1 (###) #### ###"
+                  displayType="text" 
+                  customInput="div"    
+                  />
+
+
+
+
                 </div>
               </InfoWindow>
             )}
