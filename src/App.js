@@ -61,14 +61,14 @@ const BrewerySearch = (props) => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log('Geolocation position:', position); // Log geolocation position
+          console.log('Geolocation position:', position); 
           setUserLocation({
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           });
         },
         (error) => {
-          console.error('Geolocation error:', error); // Log geolocation error
+          console.error('Geolocation error:', error); 
           setGeolocationError(error.message);
         }
       );
@@ -90,7 +90,7 @@ const BrewerySearch = (props) => {
   }, [data, mapInstance, props.google]);
 
   if (!userLocation) {
-    // Show a loading message or spinner while waiting for user location
+
     return <div>Loading user location...</div>;
   }
 
@@ -123,7 +123,7 @@ const BrewerySearch = (props) => {
           <div className='map-container container has-text-left'>
             <Map
               google={props.google}
-              zoom={12} // Use a fixed zoom level or adjust as needed
+              zoom={12} 
               initialCenter={userLocation}
               onReady={onMapReady}
               style={{ width: '100%', height: '600px', position: 'relative' }}
@@ -153,7 +153,7 @@ const BrewerySearch = (props) => {
                   </div>
                 </InfoWindow>
               )}
-              <footer className="mt-4">
+              <footer className="mt-4 is-flex is-justify-content-flex-end">
                 <strong>Where's My Beer</strong> created by <a href="https://github.com/Kuiil7">🤙🏾Kuiil7</a>.
                 <br />
                 Powered by: <a href="https://www.openbrewerydb.org/" className="pr-1">Open Brewery DB.</a>
