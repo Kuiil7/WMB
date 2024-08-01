@@ -1,24 +1,33 @@
 {
-  "name": "wmb",
-  "version": "1.0.0",
-  "description": "a US-based beer searching app powered by Open BreweryDB and Google Maps API",
+  "name": "wmb3",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "@googlemaps/js-api-loader": "^1.16.8",
+    "axios": "^1.7.2",
+    "bulma": "^1.0.2",
+    "dotenv": "^16.4.5",
+    "gh-pages": "^6.1.1",
     "google-maps-react": "^2.0.6",
-    "libphonenumber-js": "^1.9.19",
-    "luxon": "^1.27.0",
-    "node-sass": "^6.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-number-format": "^4.6.3",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3"
+    "luxon": "^3.4.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
