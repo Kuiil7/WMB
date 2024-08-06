@@ -109,12 +109,13 @@ const BrewerySearch = (props) => {
               type="text"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="enter a country, city, state, or postal code"
-              style={{ width: "250px" }}
+              placeholder="enter a keyword, country, city, state, or postal code"
+              style={{ width: "300px" }}
             />
             <input type="submit" className="button is-outlined is-hovered is-small" />
           </form>
-          <p className="subtitle is-size-7 has-text-white is-italic">Currently limited to: Austria, England, France, Isle of Man, Ireland, Poland, Portugal, Scotland, Singapore, South Korea, and the United States.</p>
+          <p className="subtitle is-size-7 has-text-white is-italic has-text-left">
+            <strong className="subtitle is-size-7 has-text-white is-italic ">Use full form e.g. "Saint Louis" instead of "St. Louis". Preferrably a single city, state, or zip code query works best.</strong> Currently limited to: Austria, England, France, Isle of Man, Ireland, Poland, Portugal, Scotland, Singapore, South Korea, and the United States.</p>
         </div>
         {isLoading && <div>Loading...</div>}
         {isError && <div>Error occurred</div>}
@@ -153,7 +154,7 @@ const BrewerySearch = (props) => {
                   </div>
                 </InfoWindow>
               )}
-              <footer className="mt-4 has-text-left">
+              <footer className="has-text-centered p-3 ">
                 <strong>Where's My Beer</strong> created by <a href="https://github.com/Kuiil7">🤙🏾Kuiil7</a>.
                 <br />
                 Powered by: <a href="https://www.openbrewerydb.org/" className="pr-1">Open Brewery DB.</a>
